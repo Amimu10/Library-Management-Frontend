@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "category": "Novel",
+      "rating": 4.5,
+      "quantity": 10,
+      "image": "https://source.unsplash.com/random/800x600?book",
+      "description": "A classic novel set in the Roaring Twenties, portraying the extravagant and tumultuous life of Jay Gatsby."
+    },
+    {
+      "id": 2,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "category": "Fiction",
+      "rating": 4.8,
+      "quantity": 8,
+      "image": "https://source.unsplash.com/random/800x600?mockingbird",
+      "description": "A powerful exploration of racism and injustice in the American South during the 1930s, seen through the eyes of a young girl named Scout Finch."
+    },
+    {
+      "id": 3,
+      "title": "1984",
+      "author": "George Orwell",
+      "category": "Dystopian",
+      "rating": 4.6,
+      "quantity": 12,
+      "image": "https://source.unsplash.com/random/800x600?1984",
+      "description": "A dystopian novel that explores the consequences of government surveillance, censorship, and the impact on individual freedom."
+    },
+    {
+      "id": 4,
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "category": "Fantasy",
+      "rating": 4.7,
+      "quantity": 15,
+      "image": "https://source.unsplash.com/random/800x600?hobbit",
+      "description": "An epic fantasy novel that follows the journey of Bilbo Baggins as he sets out on an adventure to help a group of dwarves reclaim their homeland."
+    },
+    {
+      "id": 5,
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "category": "Classic",
+      "rating": 4.4,
+      "quantity": 9,
+      "image": "https://source.unsplash.com/random/800x600?prejudice",
+      "description": "A classic romantic novel that explores themes of love, class, and social expectations in 19th-century England."
+    },
+    {
+      "id": 6,
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "category": "Coming-of-age",
+      "rating": 4.3,
+      "quantity": 7,
+      "image": "https://source.unsplash.com/random/800x600?catcher",
+      "description": "A coming-of-age novel that follows the journey of Holden Caulfield as he navigates the challenges of adolescence and the adult world."
+    }
+  ]
+  

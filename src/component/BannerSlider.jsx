@@ -36,13 +36,13 @@ const BannerSlider = () => {
   };
 
   return (
-    <Slider className="" {...settings}>
+    <Slider className="" {...settings}> 
       {images.map((imageUrl, index) => (
         <div key={index} className="relative h-screen w-full" data-aos="zoom-out-down"  >
           <img
             src={imageUrl}
             alt={`image ${index + 1}`}
-            className="lg:h-full h-[950px] w-full object-cover"
+            className="h-[650px] w-full object-cover"
           />
           <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75 font-inter">
             <div className="w-3/4 text-center md:w-2/4">
@@ -51,7 +51,7 @@ const BannerSlider = () => {
                 color="white"
                 className="lg:mb-4 my-8 text-3xl md:text-2xl lg:text-5xl font-semibold text-white"
               >
-                Explore the World of Books
+                Explore the World of Books 
               </Typography>
               <Typography
                 variant="lead"
