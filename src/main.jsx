@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <MainLayout></MainLayout>,
     errorElement: <ErrorPage></ErrorPage>,
-    children : [
+    children : [ 
       {
         path: "/",
         element: <Home></Home>
@@ -31,8 +31,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/allBooks",
-        element: <AllBooks></AllBooks>
-      },
+        element: <AllBooks></AllBooks>,
+        loader: () =>fetch("http://localhost:5000/books")
+      }, 
       {
         path: "/borrowedBook",
         element: <BorrowedBooks></BorrowedBooks>
