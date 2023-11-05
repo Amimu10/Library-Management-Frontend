@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Slider from "react-slick";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import 'aos/dist/aos.css'; // Import the AOS styles
+import 'aos/dist/aos.css'; 
 import AOS from 'aos';
 
 AOS.init();
@@ -50,7 +50,7 @@ const Blog = () => {
 
   return (
     <div data-aos="fade-up-left" className="py-5 mb-16 max-w-[1200px] mx-auto font-inter">
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 mb-8">
             <h2 className="text-3xl font-semibold font-inter">Our Latest blog Post</h2>
             <p className="text-lg font-inter mt-3">Explore our latest blog posts to stay informed and entertained. From book reviews to literary insights, our blog covers a variety of topics for every avid reader. Join us on a journey through the world of literature and discover new perspectives on your favorite books.</p>
 
