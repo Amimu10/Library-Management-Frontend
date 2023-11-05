@@ -11,7 +11,9 @@ import BorrowedBooks from "./component/BorrowedBooks";
 import Login from "./component/Login";
 import Register from "./component/Register";
 import AuthProvider from "./AuthProvider";
-import CategoryBooks from "./component/CategoryBooks";
+import PrivateRoute from "./PrivateRoute";
+import UpdateBook from "./component/UpdateBook";
+import CategoryData from "./component/CategoryData";
 
 const router = createBrowserRouter([
   {
@@ -19,24 +21,38 @@ const router = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
-      {
+      { 
         path: "/",
         element: <Home></Home>,
       },
       {
         path: "/addBook",
-        element: <AddBook></AddBook>,
+        element: <AddBook></AddBook> 
       },
 
       {
-        path: "/allBooks",
+        path: "/allBooks", 
         element: <AllBooks></AllBooks>,
-        loader: () => fetch("http://localhost:5000/books"),
-      },
+        loader: () => fetch("http://localhost:5000/books"), 
+      }, 
+      {
+        path: "/showCategory/:category",
+        element: <CategoryData></CategoryData>, 
+        loader: ({params}) => {
+          return fetch(`http://localhost:5000/books/${params.category}`) 
+        },  
+      },     
+      {
+        path: "/updateBook/:id",   
+        element: <UpdateBook></UpdateBook>,
+        loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`) 
+
+        },
+       
       {
         path: "/borrowedBook",
-        element: <BorrowedBooks></BorrowedBooks>,
-      },
+        element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>
+      }, 
       {
         path: "/login",
         element: <Login></Login>,
