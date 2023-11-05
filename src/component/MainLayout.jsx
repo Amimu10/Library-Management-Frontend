@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className="overflow-hidden">
             <Navbar></Navbar>
              <Outlet></Outlet>
         </div>
