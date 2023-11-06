@@ -88,11 +88,12 @@ const BookDetails = () => {
     const email = user?.email;
 
     const borrow = {
-      customerName: name,
+      customerName: name,    
       email,
-      date,
-      name,
+      Retuen_Date: date,   
       category,
+      Bookname: bookDetails.name, 
+      image : bookDetails.image 
     };
 
     console.log(borrow);
