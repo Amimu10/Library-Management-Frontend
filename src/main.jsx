@@ -16,6 +16,7 @@ import UpdateBook from "./component/UpdateBook";
 import CategoryData from "./component/CategoryData";
 import BookDetails from "./component/BookDetails";
 import ReadBooks from "./component/ReadBooks";
+import BorrowBook from "./component/BorrowBook";
 
 
 const router = createBrowserRouter([
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
         element: <BookDetails></BookDetails>, 
         loader: ({params}) => {
           console.log(params) 
-          return fetch(`http://localhost:5000/bookDetails/${params.id}`)                 
+          return fetch(`http://localhost:5000/bookDetails/${params.id}`)                  
       }
       },    
       {
@@ -63,6 +64,14 @@ const router = createBrowserRouter([
           return fetch(`http://localhost:5000/readBook/${params.id}`)                 
       }
       },    
+      // {
+      //   path: "/borrowBook/:id",  
+      //   element: <BorrowBook></BorrowBook>, 
+      //   loader: ({params}) => {
+      //     console.log(params) 
+      //     return fetch(`http://localhost:5000/borrowBook/${params.id}`)                 
+      // }
+      // },    
       {
         path: "/updateBooks/:id",
         element: <UpdateBook></UpdateBook>, 
