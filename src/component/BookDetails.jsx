@@ -1,9 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const BookDetails = () => { 
     const bookDetails = useLoaderData(); 
     console.log(bookDetails); 
-    const {description, image, name} = bookDetails; 
+    const {_id, description, image, name} = bookDetails; 
 
     return ( 
        <div className="max-w-[1200px] mx-auto lg:px-5 px-4">
@@ -11,9 +11,16 @@ const BookDetails = () => {
         <figure><img className="h-[250px]" src={image} alt="Album"/></figure> 
         <div className="card-body md:w-3/4"> 
           <h2 className="card-title">{name}</h2> 
+          <p className="text-pink-500 font-inter font-semibold">Book Review</p>
           <p className="text-justify">{description}</p> 
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Listen</button>
+            <Link to={`/borrowBook/${_id}`}> 
+            <button className="btn btn-primary">Borrow</button>
+            </Link>
+            <Link to={`/readBook/${_id}`}>
+            <button className="btn btn-primary">Read</button>
+            </Link>
+            
           </div>
         </div>
       </div> 

@@ -13,7 +13,8 @@ const AddBook = () => {
     const category = form.category.value;
     const author = form.author.value;
     const rating = form.rating.value;
-    const description = form.description.value;
+    const description = form.description.value; 
+    const read = form.read.value;
 
     const newBook = {
       image,
@@ -23,6 +24,7 @@ const AddBook = () => {
       author,
       rating,
       description,
+      read
     };
     console.log(newBook);
 
@@ -165,6 +167,21 @@ const AddBook = () => {
           <textarea
             id="description"
             name="description"
+            placeholder="Enter description"
+            className="w-full px-3 py-4 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="read"
+            className="block text-left text-gray-700 text-sm font-bold mb-2"
+          >
+            Read Books  
+          </label>
+          <textarea
+            id="read" 
+            name="read" 
             placeholder="Enter description"
             className="w-full px-3 py-4 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
             required

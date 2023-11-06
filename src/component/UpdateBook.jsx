@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const UpdateBook = () => {
     const books = useLoaderData();  
     console.log(books); 
-  const {_id, image, name, quantity, category, author, rating, description} = books; 
+  const {_id, image, name, quantity, category, author, rating, description, read} = books; 
 
     const handleUpdateBook = (e) => {
         e.preventDefault();
@@ -16,6 +16,7 @@ const UpdateBook = () => {
         const author = form.author.value;
         const rating = form.rating.value;
         const description = form.description.value;
+        const read = form.read.value;
     
         const updatedBook = {  
           image, 
@@ -25,6 +26,7 @@ const UpdateBook = () => {
           author,
           rating,
           description, 
+          read
         };
         console.log(updatedBook); 
 
@@ -183,6 +185,22 @@ const UpdateBook = () => {
             id="description"
             name="description"
             defaultValue={description}
+            placeholder="Enter description"
+            className="w-full px-3 py-4 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            htmlFor="read"
+            className="block text-left text-gray-700 text-sm font-bold mb-2"
+          >
+            Read Books  
+          </label>
+          <textarea
+            id="read" 
+            name="read" 
+            defaultValue={read}
             placeholder="Enter description"
             className="w-full px-3 py-4 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
             required
