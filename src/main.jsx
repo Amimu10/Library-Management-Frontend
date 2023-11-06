@@ -14,6 +14,8 @@ import AuthProvider from "./AuthProvider";
 import PrivateRoute from "./PrivateRoute";
 import UpdateBook from "./component/UpdateBook";
 import CategoryData from "./component/CategoryData";
+import BookDetails from "./component/BookDetails";
+
 
 const router = createBrowserRouter([
   {
@@ -33,22 +35,32 @@ const router = createBrowserRouter([
       {
         path: "/allBooks", 
         element: <AllBooks></AllBooks>,
-        loader: () => fetch("http://localhost:5000/books"), 
-      }, 
-      {
-        path: "/showCategory/:category",
-        element: <CategoryData></CategoryData>, 
-        loader: ({params}) => {
-          return fetch(`http://localhost:5000/books/${params.category}`) 
-        },  
+        loader: () => fetch("http://localhost:5000/books"),    
       },     
       {
-        path: "/updateBook/:id",   
-        element: <UpdateBook></UpdateBook>,
-        loader: ({ params }) => fetch(`http://localhost:5000/books/${params.id}`) 
+        path: "/showCategory/:category",  
+        element: <CategoryData></CategoryData>,  
+        loader: ({params}) => {
+          console.log(params) 
+          return fetch(`http://localhost:5000/bookscategory/${params.category}`)                 
 
-        },
-       
+      }
+      },    
+      {
+        path: "/bookDetails/:id",  
+        element: <BookDetails></BookDetails>, 
+        loader: ({params}) => {
+          console.log(params) 
+          return fetch(`http://localhost:5000/bookDetails/${params.id}`)                 
+      }
+      },    
+      {
+        path: "/updateBooks/:id",
+        element: <UpdateBook></UpdateBook>, 
+        loader: ({ params }) => {
+         return  fetch(`http://localhost:5000/books/${params.id}`) 
+        } 
+        }, 
       {
         path: "/borrowedBook",
         element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>

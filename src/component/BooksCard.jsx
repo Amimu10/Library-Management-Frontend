@@ -14,7 +14,11 @@ const BooksCard = ({ book }) => {
           <p className="font-inter">Author: {author}</p> 
           <p className="font-inter">Rating: {rating}</p> 
           <div className="card-actions justify-end"> 
-            <Link  to={`/updateBook/${_id}`} className="bg-[#2B3441] px-3 py-2 text-white rounded-md">Update</Link> 
+            <Link  to={`/updateBooks/${_id}`} className="bg-[#2B3441] px-3 py-2 text-white rounded-md">
+              
+             <button> Update</button> 
+              
+              </Link> 
           </div> 
         </div>
       </div>

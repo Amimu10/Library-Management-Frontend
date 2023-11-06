@@ -2,9 +2,9 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateBook = () => {
-    const book = useLoaderData();  
-    console.log(book); 
-  const {_id, image, name, quantity, category, author, rating, description} = book; 
+    const books = useLoaderData();  
+    console.log(books); 
+  const {_id, image, name, quantity, category, author, rating, description} = books; 
 
     const handleUpdateBook = (e) => {
         e.preventDefault();
@@ -28,16 +28,13 @@ const UpdateBook = () => {
         };
         console.log(updatedBook); 
 
-        fetch(  
-            `http://localhost:5000/updatebooks/${_id}`,
-            {
-              method: "PUT", 
-              headers: { 
-                "content-type": "application/json",   
-              },  
-              body: JSON.stringify(updatedBook),  
-            } 
-          )
+        fetch(`http://localhost:5000/books/${_id}`, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify(updatedBook),
+          })
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
@@ -47,15 +44,16 @@ const UpdateBook = () => {
                   icon: "success",
                   title: "Your work has been saved",
                   showConfirmButton: true,
-                  timer: 1500, 
+                  timer: 1500,
                 });
               }
             });
+          
     }
     return (
-         <div className="text-center px-4 py-8 bg-[#232323]">
+    <div className="text-center px-4 py-8 bg-[#232323]">
       <h3 className="font-young text-[#eee] mb-8 font-semibold lg:text-3xl text-xl">
-        Update Book  
+        Update Book : {name}
       </h3>
       <form
         onSubmit={handleUpdateBook}
@@ -97,23 +95,23 @@ const UpdateBook = () => {
             />
           </div>
           <div className="w-full sm:w-1/2 px-2 mb-4 sm:mb-0">
-            <label className="block text-left text-gray-700 text-sm font-bold mb-2">
-              {" "}
-              Select Quantity
-            </label>
-            <select
-              required
-              name="quantity" 
-              value = {quantity}
-              className="text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            >
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
-                <option key={value} value={value}> 
-                  {value}
-                </option>
-              ))}
-            </select>
-          </div>
+        <label className="block text-left text-gray-700 text-sm font-bold mb-2">
+          {" "}
+          Select Quantity
+        </label>
+        <select
+          required
+          name="quantity"
+          defaultValue={quantity}
+          className="text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        >
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
+            <option key={value} value={value}>
+              {value}
+            </option>
+          ))}
+        </select>
+      </div>
         </div>
 
         <div className="mb-4">

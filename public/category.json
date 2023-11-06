@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "image": "https://source.unsplash.com/featured/?thriller",
+      "category": "Thriller"
+    },
+    {
+      "id": 2,
+      "image": "https://source.unsplash.com/featured/?history",
+      "category": "History"
+    },
+    {
+      "id": 3,
+      "image": "https://source.unsplash.com/featured/?novel",
+      "category": "Novel"
+    },
+    {
+      "id": 4,
+      "image": "https://source.unsplash.com/featured/?drama",
+      "category": "Drama"
+    }
+  ]
+  
