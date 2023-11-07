@@ -1,6 +1,6 @@
 // import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
 import 'aos/dist/aos.css'; 
 import AOS from 'aos';
@@ -11,6 +11,7 @@ AOS.init();
 const Login = () => {
   const { signInUser, signinWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation(); 
   const [loginError, setLoginError] = useState("");  
 
   const handleLogin = (e) => { 
@@ -31,7 +32,8 @@ const Login = () => {
           timer: 1500,
         });
         e.target.reset();
-        navigate("/");
+        // navigate("/");
+        navigate(location?.state ? location?.state : "/") 
       })
       .catch((error) => {
         console.error(error);
@@ -43,7 +45,7 @@ const Login = () => {
         } else {
           setLoginError("An error occurred. Please try again later.");
         }
-      });
+      }); 
   };
 
   const handleGoogleSign = () => {
@@ -54,10 +56,10 @@ const Login = () => {
           position: "top",
           icon: "success",
           title: "User login successful",
-          showConfirmButton: false,
+          showConfirmButton: false, 
           timer: 1500,
         });
-        navigate("/");
+        navigate(location?.state ? location?.state : "/") 
       })
       .then((error) => {
         console.error(error);

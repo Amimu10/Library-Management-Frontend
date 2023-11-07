@@ -1,19 +1,41 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios"; 
 import BorrowBookRow from "./BorrowBookRow";
+import { AuthContext } from "../AuthProvider";
 
 const BorrowedBooks = () => {
+  const { user } = useContext(AuthContext); 
+  console.log(user); 
       const [borrow, setBorrow] = useState([]); 
     //   console.log(borrow.image); 
 
-      useEffect(() => {
-        axios.get("http://localhost:5000/bookings", borrow)
-        .then(res =>{ 
-            setBorrow(res.data)
-            console.log(res.data);  
-        })
+      // useEffect(() => {
+      //   axios.get(`http://localhost:5000/bookings?email=${user?.email}`, borrow, {withCredentials: true}) 
+      //   .then(res =>{ 
+      //       setBorrow(res.data)
+      //       console.log(res.data);   
+      //   })
 
-      }, [])
+      // }, [])
+
+      // useEffect(() => {
+      //   axios.get(`http://localhost:5000/bookings?email=${user?.email}`, {                       
+      //     withCredentials: true,          
+      //   })
+      //   .then(res => {
+      //     setBorrow(res.data); 
+      //     console.log(res.data);  
+      //   })
+      // }, []);
+
+      const url = `/http://localhost:5000/bookings?email=${user?.email}`; 
+      useEffect(() => { 
+       fetch(url, {credentials: "include"}) 
+       .then(res => res.json())
+       .then( data => { 
+        setBorrow(data); 
+       })
+}, [url])
 
     return (
         <div className="overflow-x-auto max-w-[1200px] mx-auto lg:px-5 px-4">
