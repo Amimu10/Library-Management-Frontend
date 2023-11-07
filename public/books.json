@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "category": "Novel",
+    "image": "https://source.unsplash.com/featured/?novel",
+    "price": 19.99
+  },
+  {
+    "id": 2,
+    "name": "Romeo and Juliet",
+    "author": "William Shakespeare",
+    "category": "Drama",
+    "image": "https://source.unsplash.com/featured/?drama",
+    "price": 14.99
+  },
+  {
+    "id": 3,
+    "name": "The Art of War",
+    "author": "Sun Tzu",
+    "category": "History",
+    "image": "https://source.unsplash.com/featured/?history",
+    "price": 24.99
+  },
+  {
+    "id": 4,
+    "name": "Mona Lisa",
+    "author": "Leonardo da Vinci",
+    "category": "Art",
+    "image": "https://source.unsplash.com/featured/?art",
+    "price": 29.99
+  },
+  {
+    "id": 5,
+    "name": "1984",
+    "author": "George Orwell",
+    "category": "Novel",
+    "image": "https://source.unsplash.com/featured/?novel",
+    "price": 21.99
+  },
+  {
+    "id": 6,
+    "name": "Hamlet",
+    "author": "William Shakespeare",
+    "category": "Drama",
+    "image": "https://source.unsplash.com/featured/?drama",
+    "price": 16.99
+  },
+  {
+    "id": 7,
+    "name": "The Diary of Anne Frank",
+    "author": "Anne Frank",
+    "category": "History",
+    "image": "https://source.unsplash.com/featured/?history",
+    "price": 18.99
+  },
+  {
+    "id": 8,
+    "name": "Starry Night",
+    "author": "Vincent van Gogh",
+    "category": "Art",
+    "image": "https://source.unsplash.com/featured/?art",
+    "price": 26.99
+  },
+  {
+    "id": 9,
+    "name": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "category": "Novel",
+    "image": "https://source.unsplash.com/featured/?novel",
+    "price": 23.99
+  },
+  {
+    "id": 10,
+    "name": "A Midsummer Night's Dream",
+    "author": "William Shakespeare",
+    "category": "Drama",
+    "image": "https://source.unsplash.com/featured/?drama",
+    "price": 17.99
+  }
+]
