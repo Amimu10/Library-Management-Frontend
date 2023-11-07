@@ -80,8 +80,8 @@ const router = createBrowserRouter([
         } 
         }, 
       {
-        path: "/borrowedBook",
-        element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>
+        path: "/borrowedBook", 
+        element: <PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute> 
       }, 
       {
         path: "/login",

@@ -1,16 +1,17 @@
 // import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useContext, useState } from "react";
-import { Link, Navigate, useLocation, useNavigate} from "react-router-dom";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 import Swal from "sweetalert2";
 import 'aos/dist/aos.css'; 
 import AOS from 'aos';
 import { AuthContext } from "../AuthProvider";
+import axios from "axios"; 
 
 AOS.init();
 
 const Login = () => {
-  const { signInUser, signinWithGoogle } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const {signInUser, signinWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate(); 
   const location = useLocation(); 
   const [loginError, setLoginError] = useState("");  
 
@@ -24,16 +25,27 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
+        const loggedInUser = result?.user;
+        console.log(loggedInUser);  
+        const user = {email} 
+        
+        axios.post(`http://localhost:5000/jwt`, user, {withCredentials: true})  
+        .then(res => {
+           console.log(res.data); 
+           if(res.data.success){
+            navigate(location?.state ? location?.state : "/");  
+           }
+        }) 
         Swal.fire({
           position: "top",
           icon: "success",
-          title: "User login successful",
+          title: "User login successful", 
           showConfirmButton: false,
           timer: 1500,
         });
         e.target.reset();
         // navigate("/");
-        navigate(location?.state ? location?.state : "/") 
+       
       })
       .catch((error) => {
         console.error(error);

@@ -2,11 +2,11 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateBook = () => {
-    const books = useLoaderData();  
+    const books = useLoaderData();   
     console.log(books); 
-  const {_id, image, name, quantity, category, author, rating, description, read} = books; 
+  const {_id, image, name, quantity, category, author, rating, description, read} = books;  
 
-    const handleUpdateBook = (e) => {
+    const handleUpdateBook = (e) => { 
         e.preventDefault();
         const form = e.target;
         const image = form.image.value;
@@ -18,7 +18,7 @@ const UpdateBook = () => {
         const description = form.description.value;
         const read = form.read.value;
     
-        const updatedBook = {  
+        const updatedBook = {     
           image, 
           name,
           quantity,
@@ -28,14 +28,14 @@ const UpdateBook = () => {
           description, 
           read
         };
-        console.log(updatedBook); 
+        console.log(updatedBook);   
 
-        fetch(`http://localhost:5000/books/${_id}`, {
+        fetch(`http://localhost:5000/books/${_id}`, {            
             method: "PUT",
             headers: {
               "content-type": "application/json"
             },
-            body: JSON.stringify(updatedBook),
+            body: JSON.stringify(updatedBook),   
           })
             .then((res) => res.json())
             .then((data) => {

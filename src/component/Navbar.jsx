@@ -3,7 +3,8 @@ import {NavLink } from "react-router-dom";
 import logo from "../assets/images.png";
 import { AuthContext } from "../AuthProvider";
 import { useContext, useEffect, useState } from "react";
-const Navbar = () => {
+
+const Navbar = ({children}) => {
   const { user, logOut } = useContext(AuthContext);
 
   const name = user?.displayName;
@@ -147,6 +148,7 @@ const Navbar = () => {
           </div>
         </div>
         {/* Page content here */}
+        {children} 
       </div>
       <div className="drawer-side">
         

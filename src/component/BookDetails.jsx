@@ -65,40 +65,76 @@
 
 import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import { AuthContext } from "../AuthProvider";
+import { AuthContext } from "../AuthProvider"; 
 import Swal from "sweetalert2";
 
 const BookDetails = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext); 
   const bookDetails = useLoaderData();
-  const [modal, setModal] = useState(false);
-
+  const [modal, setModal] = useState(false); 
+ 
   console.log(bookDetails);
-  const { _id, description, image, name, category } = bookDetails;
+  const { _id, description, image, name, category, quantity } = bookDetails;       
+  // console.log(bookDetails.quantity); 
+  const [count, setCount] = useState(quantity); 
 
   const handleModal = () => {
     setModal(!modal);
+    
   };
 
-  const handleBorrow = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const date = form.date.value;
-    const email = user?.email;
+  // const handleQuantity = () => { 
+  //   if (count > 0) {
+  //     setCount(count - 1);
+  //   }
+  // }
+  const handleBorrow = (e) => { 
 
-    const borrow = {
+    e.preventDefault();
+    const form = e.target; 
+    const name = form.name.value; 
+    const return_date = form.return_date.value;  
+    const borrowed_date = form.borrowed_date.value;  
+    const email = user?.email;  
+
+    const borrow = { 
       customerName: name,    
       email,
-      Retuen_Date: date,   
+      bookId: _id,
+      Retuen_Date: return_date,   
+      borrowed_date: borrowed_date,   
       category,
       Bookname: bookDetails.name, 
-      image : bookDetails.image 
+      image : bookDetails.image,
+
     };
 
-    console.log(borrow);
+    console.log(borrow); 
+ if (count === 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Sorry, this book is out of stock!",
+      });
+      return;
+    }
 
-    fetch("http://localhost:5000/bookings", {
+   
+    Swal.fire({
+      position: "top",
+      icon: "success",
+      title: "Borrowed successfully",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+
+    setCount(count - 1);
+
+  
+    setModal(false);
+    e.target.reset();
+
+    fetch("http://localhost:5000/bookings", { 
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -123,6 +159,10 @@ const BookDetails = () => {
   return (
     <div className="max-w-[1200px] mx-auto lg:px-5 px-4">
       <div className="card md:card-side bg-base-500 shadow-xl border p-4">
+        {count}
+      {count === 0 && <p className="text-lg text-pink-500 font-inter mb-4">This book not available</p> 
+    
+    }
         <figure>
           <img className="h-[250px]" src={image} alt="Album" />
         </figure>
@@ -131,7 +171,11 @@ const BookDetails = () => {
           <p className="text-pink-500 font-inter font-semibold">Book Review</p>
           <p className="text-justify">{description}</p>
           <div className="card-actions justify-end">
-            <button onClick={handleModal} className="btn btn-primary">
+            <button
+              onClick={handleModal}
+              className={`btn btn-primary ${count === 0 ? "disabled" : ""}`}
+              disabled={count === 0} 
+            >
               Borrow
             </button>
             <Link to={`/readBook/${_id}`}>
@@ -155,7 +199,7 @@ const BookDetails = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text">Name</span> 
                 </label>
                 <input
                   type="text"
@@ -172,7 +216,7 @@ const BookDetails = () => {
                 </label>
                 <input
                   type="date"
-                  name="date"
+                  name="return_date"
                   className="input input-bordered"
                   required
                 />
@@ -190,19 +234,31 @@ const BookDetails = () => {
                   required
                 />
               </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text"> Borrowed Date</span>
+                </label>
+                <input
+                  type="date"
+                  name="borrowed_date"
+                  className="input input-bordered"
+                  required
+                />
+              </div> 
             </div>
             <div className="form-control mt-6">
-              <button
-                onClick={handleModal}
-                className="bg-[#FF3811] rounded-md p-2 text-white text-lg font-semibold"
-              >
-                Submit
-              </button>
+            <button
+              onClick={handleModal}
+              className={`btn btn-primary ${count === 0 ? "disabled" : ""}`}
+              disabled={count === 0}
+            >
+              Borrow
+            </button>
             </div>
           </form>
         </div>
         <button type="button" onClick={handleModal} className="btn">
-          Cancel Borrow
+          Cancel Borrow 
         </button>
       </div>
     </div>

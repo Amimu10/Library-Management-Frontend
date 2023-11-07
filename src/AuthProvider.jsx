@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import axios from "axios"; 
+import axios from "axios";  
 import {
     GoogleAuthProvider,
     createUserWithEmailAndPassword,
