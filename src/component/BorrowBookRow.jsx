@@ -1,13 +1,9 @@
-// import { useContext } from "react";
-// import { AuthContext } from "../AuthProvider";
+
 
 const BorrowBookRow = ({ item, handleDelete}) => {
-  // const {user} = useContext(AuthContext);
 
-  const { _id, customerName, Bookname, borrowed_date, email, category, image, Retuen_Date } = item;
-
-
-  console.log(item);
+  const { _id, CustomerName, Bookname, borrowed_date, email, category, image, return_date } = item;
+  // console.log(item);
   return (
     <tbody>
       <tr>
@@ -30,11 +26,11 @@ const BorrowBookRow = ({ item, handleDelete}) => {
           <br />
           <span className="badge badge-ghost badge-sm">{Bookname}</span>
         </td>
-        <td>{customerName}</td>
+        <td>{CustomerName}</td>
         <td>{email}</td>
-        <td>{Retuen_Date}</td>
+        <td>{return_date}</td>
         <th>
-          <button onClick={() =>handleDelete(_id)} className="btn btn-ghost text-normal btn-xs">Return</button>
+          <button onClick={() =>handleDelete(_id)} className=" bg-pink-500 p-2 rounded-md">Return</button>
         </th>
         <th>
            {borrowed_date}

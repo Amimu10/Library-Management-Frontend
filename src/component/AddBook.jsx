@@ -1,5 +1,6 @@
 import "aos/dist/aos.css";
 import AOS from "aos";
+import Swal from "sweetalert2";
 
 AOS.init();
 
@@ -27,8 +28,9 @@ const AddBook = () => {
       read
     };
     console.log(newBook);
+    e.target.reset();
 
-    fetch("http://localhost:5000/books", {
+    fetch("https://readers-heaven-server.vercel.app/books", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -37,7 +39,15 @@ const AddBook = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        if(data.insertedId){ 
+          Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "Book added successfully", 
+            showConfirmButton: true,
+            timer: 1500
+          });
+        }
       });
   };
 

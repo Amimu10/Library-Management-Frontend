@@ -1,8 +1,7 @@
-
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import Logo from "../assets/images.png";
+import Logo from "../assets/logo.webp";
 import { AuthContext } from "../AuthProvider";
 
 const Navbar = () => {
@@ -44,13 +43,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className="">
+    <div className="bg-[#232323]">
       <div className="relative max-w-[1440px] px-4 mx-auto">
         <nav className="flex justify-between items-center text-md  gap-4 p-6">
-          <div> 
+          <div>
             <h3 className="lg:text-2xl font-semibold font-young text-orange-600">
-              <img src={Logo} className="lg:w-full md: h-[90px]" alt="" />   
-            </h3>   
+              <img src={Logo} className="lg:w-full w-[145px]" alt="" />
+            </h3>
           </div>
           <div className="md:flex lg:gap-12 md:gap-6 text-lg md:text-md hidden list-none">
             <li className="md:mt-1">
@@ -61,7 +60,7 @@ const Navbar = () => {
                     ? "pending "
                     : isActive
                     ? "text-[#f33f3f] font-semibold font-young transition-all duration-300 hover:underline "
-                    : "font-inter font-medium"
+                    : "font-young font-medium text-[#eee]"
                 }
               >
                 Home
@@ -75,7 +74,7 @@ const Navbar = () => {
                     ? "pending"
                     : isActive
                     ? "text-[#f33f3f] font-semibold font-young transition-all duration-300 hover:underline "
-                    : "font-inter font-medium"
+                    : "font-young font-medium text-[#eee]"
                 }
               >
                 Add Book
@@ -89,7 +88,7 @@ const Navbar = () => {
                     ? "pending"
                     : isActive
                     ? "text-[#f33f3f] font-semibold font-young transition-all duration-300 hover:underline "
-                    : "font-inter font-medium"
+                    : "font-young font-medium text-[#eee]"
                 }
               >
                 All Books
@@ -103,18 +102,18 @@ const Navbar = () => {
                     ? "pending"
                     : isActive
                     ? "text-[#f33f3f] font-semibold font-young transition-all duration-300 hover:underline "
-                    : "font-inter font-medium"
+                    : "font-young font-medium text-[#eee]"
                 }
               >
                 Borrowed Books 
               </NavLink>
             </li>
-            <li className="flex gap-3  items-center"> 
+            <li className="flex gap-3  items-center">
               {user ? (
                 <>
-                  {name && photo && (  
+                  {name && photo && (
                     <>
-                      <p className=" font-inter text-base border-stone-400 rounded-md font-thin">{name}</p>
+                      <p className="text-[#eee] font-young text-sm">{name}</p>
                       <img
                         src={photo}
                         className="inline items-center mr-3 h-10 w-10 rounded-full"
@@ -123,7 +122,7 @@ const Navbar = () => {
                     </>
                   )}
                   <NavLink onClick={handleLogOut}>
-                    <Link className="bg-[#7AA93C] font-inter font-thin px-4 py-2 rounded text-white"> 
+                    <Link className="bg-[#7AA93C] text-white font-young font-thin px-4 py-2 rounded">
                       Sign Out
                     </Link>
                   </NavLink>
@@ -132,7 +131,7 @@ const Navbar = () => {
                 <NavLink>
                   <Link
                     to="/login"
-                    className="bg-[#7AA93C] font-inter font-thin px-4 py-2 rounded text-white"
+                    className="bg-[#7AA93C] text-white font-young font-thin px-4 py-2 rounded"
                   >
                     Login
                   </Link>
@@ -143,7 +142,7 @@ const Navbar = () => {
               <input type="checkbox" onChange={handleToggle}/> 
 
               <svg
-                className="swap-on fill-current w-10 h-[25px]"
+                className="swap-on fill-current w-10 h-10 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -151,7 +150,7 @@ const Navbar = () => {
               </svg>
 
               <svg
-                className="swap-off fill-current w-10 h-[25px]"
+                className="swap-off fill-current w-10 h-10 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -164,7 +163,7 @@ const Navbar = () => {
               <input type="checkbox" onChange={handleToggle}/> 
 
               <svg
-                className="swap-on fill-current w-10 h-10"
+                className="swap-on fill-current w-10 h-10 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -172,7 +171,7 @@ const Navbar = () => {
               </svg>
 
               <svg
-                className="swap-off fill-current w-10 h-10"
+                className="swap-off fill-current w-10 h-10 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -191,18 +190,18 @@ const Navbar = () => {
               />
             )}
             {menu && (
-              <div className="absolute top-20 right-0 text-lg w-full z-10 rounded-lg p-5 bg-[#232323]">
+              <div className="absolute top-20 right-0 text-lg bg-[#eee] w-full z-10 rounded-lg p-5">
                 <ul className="flex flex-col gap-4 list-none">
                   <li>
                     <NavLink
                       to="/"
                       onClick={handleNavLinkClick}
-                      className={({ isActive, isPending }) => 
-                        isPending 
-                          ? "pending" 
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "pending"
                           : isActive
                           ? "text-[#f33f3f] font-semibold font-young transition-all duration-300 hover:underline "
-                          : "font-inter font-medium text-white"
+                          : "font-young font-medium text-[#232323]"
                       }
                     >
                       Home
@@ -212,12 +211,12 @@ const Navbar = () => {
                     <NavLink
                       to="/addBook"
                       onClick={handleNavLinkClick}
-                      className={({ isActive, isPending }) => 
+                      className={({ isActive, isPending }) =>
                         isPending
-                          ? "pending" 
-                          : isActive 
+                          ? "pending"
+                          : isActive
                           ? "text-[#f33f3f] font-semibold font-young transition-all duration-300 hover:underline "
-                          : "font-inter font-medium text-white"
+                          : "font-young font-medium text-[#232323]"
                       }
                     >
                       Add Book
@@ -232,7 +231,7 @@ const Navbar = () => {
                           ? "pending"
                           : isActive
                           ? "text-[#f33f3f] font-semibold font-young transition-all duration-300 hover:underline "
-                          : "font-inter font-medium text-white"
+                          : "font-young font-medium text-[#232323]"
                       }
                     >
                       All Books
@@ -247,10 +246,10 @@ const Navbar = () => {
                           ? "pending"
                           : isActive
                           ? "text-[#f33f3f] font-semibold font-young transition-all duration-300 hover:underline "
-                          : "font-inter font-medium text-white"
-                      }
+                          : "font-young font-medium text-[#232323]"
+                      } 
                     >
-                      Borrowed Books 
+                      Borrowed Books
                     </NavLink>
                   </li>
                   {user ? (
@@ -263,7 +262,7 @@ const Navbar = () => {
                             ? "pending"
                             : isActive
                             ? "text-[#FDBF05] font-semibold font-young"
-                            : "font-inter font-medium text-white"
+                            : "font-young font-medium text-white"
                         }
                       >
                         Sign Out
@@ -279,7 +278,7 @@ const Navbar = () => {
                             ? "pending"
                             : isActive
                             ? "text-[#FDBF05] font-semibold font-young"
-                            : "font-inter font-medium text-white"
+                            : "font-young font-medium text-white"
                         }
                       >
                         Login

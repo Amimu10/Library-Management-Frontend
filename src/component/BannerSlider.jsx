@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { Typography, Button } from "@material-tailwind/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 // import 'aos/dist/aos.css'; 
 // import AOS from 'aos';
 
@@ -61,12 +62,11 @@ const BannerSlider = () => {
                 Immerse yourself in the vast world of literature. Discover a curated collection of books spanning various genres and topics.
               </Typography>
               <div className="flex mb-14 flex-col md:flex-row gap-2 md:gap-4 items-center justify-center">
-                <Button size="lg"  className="w-full md:w-auto bg-slate-600 p-2 rounded-md">
-                  Explore Now
+               <Link to="/allBooks">
+               <Button size="lg" color="white" variant="text" className="w-full md:w-auto hover:bg-[#f33f3f] p-2 rounded-md">
+                  Browse Books 
                 </Button>
-                <Button size="lg" color="white" variant="text" className="w-full md:w-auto hover:bg-slate-600 p-2 rounded-md">
-                  Browse Books
-                </Button>
+               </Link>
               </div>
             </div>
           </div>

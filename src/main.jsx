@@ -18,7 +18,6 @@ import BookDetails from "./component/BookDetails";
 import ReadBooks from "./component/ReadBooks";
 // import BorrowBook from "./component/BorrowBook";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,14 +36,14 @@ const router = createBrowserRouter([
       {
         path: "/allBooks", 
         element: <AllBooks></AllBooks>,
-        loader: () => fetch("http://localhost:5000/books"),    
+        loader: () => fetch("https://readers-heaven-server.vercel.app/books"),    
       },     
       {
         path: "/showCategory/:category",  
         element: <CategoryData></CategoryData>,  
         loader: ({params}) => {
           console.log(params) 
-          return fetch(`http://localhost:5000/bookscategory/${params.category}`)                 
+          return fetch(`https://readers-heaven-server.vercel.app/bookscategory/${params.category}`)                 
 
       }
       },    
@@ -53,30 +52,22 @@ const router = createBrowserRouter([
         element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>,
         loader: ({params}) => {
           console.log(params) 
-          return fetch(`http://localhost:5000/bookDetails/${params.id}`)                  
+          return fetch(`https://readers-heaven-server.vercel.app/bookDetails/${params.id}`)                  
       }
       },    
       {
         path: "/readBook/:id",  
-        element: <ReadBooks></ReadBooks>, 
+        element: <PrivateRoute><ReadBooks></ReadBooks></PrivateRoute>, 
         loader: ({params}) => {
           console.log(params) 
-          return fetch(`http://localhost:5000/readBook/${params.id}`)                 
-      }
-      },    
-      // {
-      //   path: "/borrowBook/:id",  
-      //   element: <BorrowBook></BorrowBook>, 
-      //   loader: ({params}) => {
-      //     console.log(params) 
-      //     return fetch(`http://localhost:5000/borrowBook/${params.id}`)                 
-      // }
-      // },    
+          return fetch(`https://readers-heaven-server.vercel.app/readBook/${params.id}`)                 
+      } 
+      },        
       {
         path: "/updateBooks/:id",
         element: <PrivateRoute><UpdateBook></UpdateBook></PrivateRoute>, 
         loader: ({ params }) => {
-         return  fetch(`http://localhost:5000/books/${params.id}`) 
+         return  fetch(`https://readers-heaven-server.vercel.app/books/${params.id}`) 
         } 
         }, 
       {
@@ -89,7 +80,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Register></Register>,
+        element: <Register></Register>, 
       },
     ],
   },

@@ -14,7 +14,7 @@ const CategoryDataCard = ({data}) => {
           <p className="font-inter">Author: {author}</p> 
           <p className="font-inter">Rating: {rating}</p> 
           <div className="card-actions justify-end">   
-            <Link  to={`/bookDetails/${_id}`} className="bg-[#2B3441] px-3 py-2 text-white rounded-md">Show details</Link> 
+            <Link  to={`/bookDetails/${_id}`} className="bg-[#f33f3f] font-inter font-semibold px-3 py-2 text-white rounded-md">View Details</Link> 
           </div> 
         </div>
       </div>

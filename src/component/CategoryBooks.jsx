@@ -9,7 +9,7 @@
 
 
 //   useEffect(() => {
-//     axios.get(`http://localhost:5000/books?`)      
+//     axios.get(`https://readers-heaven-server.vercel.app/books?`)      
 //       .then((response) => {
 //         setAllBooks(response.data);
 //       })
@@ -74,7 +74,7 @@
 //     const [categories, setCategories] = useState([]); 
 
 //     useEffect(() => {
-//        fetch("http://localhost:5000/books", {
+//        fetch("https://readers-heaven-server.vercel.app/books", {
 //          method: "GET",
 //          headers: {
 //            "content-type": "application/json"
@@ -147,10 +147,10 @@ const CategoryBooks = () => {
               <img className="h-[300px] object-cover w-full" src={category.image} alt="" />     
             </figure> 
             <div className="p-2">
-              <h3 className="text-xl font-medium font-young text-center">{category.category}</h3>
+              <h3 className="text-lg text-pink-700  font-semibold font-inter text-center">{category.category}</h3>
             </div>
-            <Link to={`/showCategory/${category.category}`}>
-            <button className=" bg-neutral-600 p-2 rounded-md text-white"> See Books</button></Link>
+            <Link to={`/showCategory/${category.category}`}> 
+            <button className=" bg-[#f33f3f] w-full font-inter font-medium p-2 rounded-md text-white"> See Books</button></Link>
           </div>
         </div>
       ))}

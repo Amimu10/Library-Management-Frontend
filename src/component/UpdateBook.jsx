@@ -30,7 +30,7 @@ const UpdateBook = () => {
         };
         console.log(updatedBook);   
 
-        fetch(`http://localhost:5000/books/${_id}`, {            
+        fetch(`https://readers-heaven-server.vercel.app/books/${_id}`, {            
             method: "PUT",
             headers: {
               "content-type": "application/json"

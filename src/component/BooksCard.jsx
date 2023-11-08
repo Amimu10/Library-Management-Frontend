@@ -4,7 +4,8 @@ const BooksCard = ({ book }) => {
     const { _id, image, name, category, author, rating } = book;
   
     return (
-      <div className="card card-compact font-inter shadow-xl">
+      <div className="lg:px-5 px-4">
+        <div className="card card-compact font-inter shadow-xl">
         <figure>
           <img className="h-[240px] w-full" src={image} alt="Book Cover" />
         </figure>
@@ -14,13 +15,14 @@ const BooksCard = ({ book }) => {
           <p className="font-inter">Author: {author}</p> 
           <p className="font-inter">Rating: {rating}</p> 
           <div className="card-actions justify-end"> 
-            <Link  to={`/updateBooks/${_id}`} className="bg-[#2B3441] px-3 py-2 text-white rounded-md">
+            <Link  to={`/updateBooks/${_id}`} className="bg-[#f33f3f] px-5 font-inter font-medium py-2 text-white rounded-md">
               
              <button> Update</button> 
               
               </Link> 
           </div> 
         </div>
+      </div>
       </div>
     );
   };
