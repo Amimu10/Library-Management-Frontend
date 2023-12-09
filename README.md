@@ -28,3 +28,14 @@ Here is  Project-Features:
    - Users can add new books to the collection, providing details such as name, author, category, image, and pricing. Additionally, users can update existing book information to keep the collection current.
 
 These features contribute to a rich and interactive user experience, incorporating essential functionalities like theme customization, book addition, and updates for a dynamic and user-friendly application.
+
+## Uses Tech:
+
+- **Client-side Technologies:**
+  - React for building dynamic user interfaces.
+  - Tailwind CSS for modern and responsive styling.
+
+- **Server-side Technologies:**
+  - MongoDB for efficient storage and retrieval of user and product data.
+  - Express and Node.js for building a robust and scalable server.
+  - Firebase for secure user authentication.
